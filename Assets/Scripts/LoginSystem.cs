@@ -16,6 +16,7 @@ public class LoginSystem : MonoBehaviour
     public string username, email, password;
 
     private string codeLength;
+    private string loginMessage;
 
     // Update is called once per frame
     void Update()
@@ -54,6 +55,7 @@ public class LoginSystem : MonoBehaviour
     {
         Debug.Log("Logging in...");
         StartCoroutine(Login(username, password));
+        //SceneManager.LoadScene("Game");
     }
 
     public void ResetPassword()
@@ -70,6 +72,9 @@ public class LoginSystem : MonoBehaviour
         WWW www = new WWW(loginURL, user);
         yield return www;
         Debug.Log(www.text);
+        loginMessage = www.text;
+        if (loginMessage.Contains("go"))
+            SceneManager.LoadScene(1);
     }
 
     void SendEmail(string email, string debugUser)
@@ -117,5 +122,19 @@ public class LoginSystem : MonoBehaviour
         }
         yield return codeLength;
     }
-   
+
+    IEnumerator ResetPassword(string email, string password)
+    {
+        string resetURL = "http://localhost/sqlsystem/ResetPassword.php";
+        WWWForm resetPassword = new WWWForm();
+        resetPassword.AddField("email_Post", email);
+        resetPassword.AddField("password_Post", password);
+        WWW www = new WWW(resetURL, resetPassword);
+        yield return www;
+        if (www.text.Contains("Password Updated"))
+        {
+            ResetPassword();
+        }
+    }
+
 }

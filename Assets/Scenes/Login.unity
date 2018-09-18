@@ -1368,9 +1368,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isLogin: 1
-  username: BestUser
-  email: anshumanmeghnad@gmail.com
-  password: boomshakalaka
+  username: 
+  email: 
+  password: 
 --- !u!1 &870780061
 GameObject:
   m_ObjectHideFlags: 0
