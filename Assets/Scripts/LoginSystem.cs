@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 using System;
 using System.Net;
@@ -17,19 +18,26 @@ public class LoginSystem : MonoBehaviour
 
     private string codeLength;
     private string loginMessage;
+    public GameObject loginPage, registerPage;
 
     // Update is called once per frame
     void Update()
     {
-        if (isLogin)
+        if (!isLogin)
         {
-
+            registerPage.SetActive(true);
+            loginPage.SetActive(false);
+        }
+        else
+        {
+            registerPage.SetActive(false);
+            loginPage.SetActive(true);
         }
     }
 
     IEnumerator CreateAccount(string username, string email, string password)
     {
-        string createUserURL = "http://localhost/sqlsystem/createuser.php";
+        string createUserURL = "http://localhost/sqlassessment/createuser.php";
         WWWForm user = new WWWForm();
         user.AddField("username_Post", username);
         user.AddField("email_Post", email);
@@ -65,7 +73,7 @@ public class LoginSystem : MonoBehaviour
 
     IEnumerator Login(string username, string password)
     {
-        string loginURL = "http://localhost/sqlsystem/login.php";
+        string loginURL = "http://localhost/sqlassessment/login.php";
         WWWForm user = new WWWForm();
         user.AddField("username_Post", username);
         user.AddField("password_Post", password);
@@ -100,7 +108,7 @@ public class LoginSystem : MonoBehaviour
 
     IEnumerator CheckEmail(string email)
     {
-        string loginURL = "http://localhost/sqlsystem/CheckEmail.php";
+        string loginURL = "http://localhost/sqlassessment/CheckEmail.php";
         WWWForm checkEmail = new WWWForm();
         checkEmail.AddField("email_Post", email);
         WWW www = new WWW(loginURL, checkEmail);
@@ -125,7 +133,7 @@ public class LoginSystem : MonoBehaviour
 
     IEnumerator ResetPassword(string email, string password)
     {
-        string resetURL = "http://localhost/sqlsystem/ResetPassword.php";
+        string resetURL = "http://localhost/sqlassessment/ResetPassword.php";
         WWWForm resetPassword = new WWWForm();
         resetPassword.AddField("email_Post", email);
         resetPassword.AddField("password_Post", password);
