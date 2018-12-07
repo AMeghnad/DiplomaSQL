@@ -92,7 +92,7 @@ public class RadialMenu : MonoBehaviour
             slotPos = SlotPositions(numOfSectors);
             boundsPos = BoundPositions(numOfSectors);
             // Centre
-            GUI.Box(new Rect(Scr(7.5f, 4), Scr(1, 1)), "");
+            //GUI.Box(new Rect(Scr(7.5f, 4), Scr(1, 1)), "");
             // Circle
             GUI.DrawTexture(new Rect(circleCentre.x - circleRadius - circleScaleOffset / 4, circleCentre.y - circleRadius - circleScaleOffset / 4, circleRadius * 2 + circleScaleOffset / 2, circleRadius * 2 + circleScaleOffset / 2), radialTexture);
             if (showBoxes)

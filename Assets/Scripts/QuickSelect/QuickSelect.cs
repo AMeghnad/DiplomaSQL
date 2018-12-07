@@ -84,7 +84,7 @@ public class QuickSelect : MonoBehaviour
 			slotPos = SlotPositions (numOfSectors);
 			boundPos = BoundPositions (numOfSectors);
 			//DeadZone
-			GUI.Box (new Rect (Scr (7.5f, 4), Scr (1, 1)), "");
+			//GUI.Box (new Rect (Scr (7.5f, 4), Scr (1, 1)), "");
 			//Circle
 			GUI.DrawTexture(new Rect(circleCenter.x - circleRadius-(circleScaleOffset/4),circleCenter.y - circleRadius-(circleScaleOffset/4),(circleRadius*2)+(circleScaleOffset/2),(circleRadius*2)+(circleScaleOffset/2)),radialTexture);
 
