@@ -19,7 +19,9 @@ public class LoginSystem : MonoBehaviour
     private string codeLength;
     private string loginMessage;
     public GameObject loginPage, registerPage;
+    public Text userText, passText;
 
+    public Text userNameText, emailText, passwordText;
     // Update is called once per frame
     void Update()
     {
@@ -56,13 +58,13 @@ public class LoginSystem : MonoBehaviour
     public void Register()
     {
         Debug.Log("Sending...");
-        StartCoroutine(CreateAccount(username, email, password));
+        StartCoroutine(CreateAccount(userNameText.text, emailText.text, passwordText.text));
     }
 
     public void Login()
     {
         Debug.Log("Logging in...");
-        StartCoroutine(Login(username, password));
+        StartCoroutine(Login(userText.text, passText.text));
         //SceneManager.LoadScene("Game");
     }
 

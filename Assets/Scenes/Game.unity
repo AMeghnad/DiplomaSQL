@@ -1145,7 +1145,7 @@ MonoBehaviour:
   inputIndex: 0
   slotPos: []
   boundsPos: []
-  numOfSectors: 0
+  numOfSectors: 4
   circleRadius: 50
   mouseDist: 0
   sectorDeg: 0
@@ -1199,6 +1199,13 @@ MonoBehaviour:
   username: 
   email: 
   password: 
+  loginPage: {fileID: 0}
+  registerPage: {fileID: 0}
+  userText: {fileID: 0}
+  passText: {fileID: 0}
+  userNameText: {fileID: 0}
+  emailText: {fileID: 0}
+  passwordText: {fileID: 0}
 --- !u!114 &1767276322
 MonoBehaviour:
   m_ObjectHideFlags: 0
